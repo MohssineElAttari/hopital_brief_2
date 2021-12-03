@@ -1,5 +1,7 @@
 package com.hospital.models;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Hospital {
@@ -8,6 +10,11 @@ public class Hospital {
 	private String name;
 	private String city;
 	private List<Ward> wards;
+	private List<Doctor> doctors;
+	private List<Room> rooms;
+	private List<Operation> operations;
+	private List<Patient> patients;
+	private List<Nurse> nurses;
 
 	public Hospital() {
 		super();
@@ -50,6 +57,46 @@ public class Hospital {
 
 	public void setWards(List<Ward> wards) {
 		this.wards = wards;
+	}
+
+	public List<Doctor> getDoctors() {
+		return doctors;
+	}
+
+	public void setDoctors(List<Doctor> doctors) {
+		this.doctors = doctors;
+	}
+
+	public List<Room> getRooms() {
+		return rooms;
+	}
+
+	public void setRooms(List<Room> rooms) {
+		this.rooms = rooms;
+	}
+
+	public List<Operation> getOperations() {
+		return operations;
+	}
+
+	public void setOperations(List<Operation> operations) {
+		this.operations = operations;
+	}
+
+	public List<Patient> getPatients() {
+		return patients;
+	}
+
+	public void setPatients(List<Patient> patients) {
+		this.patients = patients;
+	}
+
+	public List<Nurse> getNurses() {
+		return nurses;
+	}
+
+	public void setNurses(List<Nurse> nurses) {
+		this.nurses = nurses;
 	}
 
 	@Override
