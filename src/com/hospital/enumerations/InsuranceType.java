@@ -2,16 +2,24 @@ package com.hospital.enumerations;
 
 public enum InsuranceType {
 
-	CNSS("CNSS",0.7,1), RAMED("RAMED",0.8,2), CNOPS("CNOPS",1,3), NONE("NOEE",0,0);
+	CNSS("CNSS", "70%", 0.7), RAMED("RAMED", "80%", 0.8), CNOPS("CNOPS", "100%", 1), NONE("No", "0%", 0);
 
-	private String value;
+	private String name;
+	String percentage;
+	double value;
 
-	InsuranceType(String value, double d, int number) {
-		
+	InsuranceType(String name, String percentage, double value) {
+		this.name = name;
+		this.percentage = percentage;
+		this.value = value;
 	}
 
-	public String getValue() {
+	public double getValue() {
 		return value;
+	}
+
+	public String getInsurance() {
+		return name;
 	}
 
 }
