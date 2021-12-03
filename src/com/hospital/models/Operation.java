@@ -3,6 +3,7 @@ package com.hospital.models;
 import java.sql.Date;
 
 import com.hospital.enumerations.InsuranceType;
+import com.hospital.enumerations.OperationStatus;
 import com.hospital.enumerations.OperationType;
 
 public class Operation {
@@ -41,15 +42,24 @@ public class Operation {
 	private double priceOfOperation;
 	private boolean isPayed;
 	private Date paymentDate;
-	private double refund;
+	private double refund = 0;
 	private InsuranceType insuranceType;
 	private OperationType operationType;
 	private Date operationDate;
 	private TimeSlot timeOperation;
+	private Hospital hospital;
+	private Room room;
+	private Doctor doctor;
+	private Patient patient;
+	private OperationStatus operationStatus;
+	
+
+
 
 	public Operation(Long reference, String name, String type, double priceOfOperation, boolean isPayed,
 			Date paymentDate, double refund, InsuranceType insuranceType, OperationType operationType,
-			Date operationDate, TimeSlot timeOperation) {
+			Date operationDate, TimeSlot timeOperation, Hospital hospital, Room room, Doctor doctor, Patient patient,
+			OperationStatus operationStatus) {
 		super();
 		this.reference = reference;
 		this.name = name;
@@ -62,6 +72,11 @@ public class Operation {
 		this.operationType = operationType;
 		this.operationDate = operationDate;
 		this.timeOperation = timeOperation;
+		this.hospital = hospital;
+		this.room = room;
+		this.doctor = doctor;
+		this.patient = patient;
+		this.operationStatus = operationStatus;
 	}
 
 	public Operation() {
@@ -128,11 +143,80 @@ public class Operation {
 		this.paymentDate = paymentDate;
 	}
 
-	@Override
-	public String toString() {
-		return "Operation [reference=" + reference + ", name=" + name + ", type=" + type + ", isPayed=" + isPayed
-				+ ", operationType=" + operationType + ", insuranceType=" + insuranceType + ", operationDate="
-				+ operationDate + ", paymentDate=" + paymentDate + "]";
+	public double getPriceOfOperation() {
+		return priceOfOperation;
 	}
 
+	public void setPriceOfOperation(double priceOfOperation) {
+		this.priceOfOperation = priceOfOperation;
+	}
+
+	public double getRefund() {
+		return refund;
+	}
+
+	public void setRefund(double refund) {
+		this.refund = refund;
+	}
+
+	public TimeSlot getTimeOperation() {
+		return timeOperation;
+	}
+
+	public void setTimeOperation(TimeSlot timeOperation) {
+		this.timeOperation = timeOperation;
+	}
+
+	public Hospital getHospital() {
+		return hospital;
+	}
+
+	public void setHospital(Hospital hospital) {
+		this.hospital = hospital;
+	}
+
+	public Room getRoom() {
+		return room;
+	}
+
+	public void setRoom(Room room) {
+		this.room = room;
+	}
+
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public OperationStatus getOperationStatus() {
+		return operationStatus;
+	}
+
+	public void setOperationStatus(OperationStatus operationStatus) {
+		this.operationStatus = operationStatus;
+	}
+
+	public void setReference(Long reference) {
+		this.reference = reference;
+	}
+
+	public Patient getPatient() {
+		return patient;
+	}
+
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
+
+	@Override
+	public String toString() {
+		return "Operation [reference=" + reference + ", name=" + name + ", type=" + type + ", priceOfOperation="
+				+ priceOfOperation + ", isPayed=" + isPayed + ", paymentDate=" + paymentDate + ", refund=" + refund
+				+ ", insuranceType=" + insuranceType + ", operationType=" + operationType + ", operationDate="
+				+ operationDate + ", timeOperation=" + timeOperation + ", hospital=" + hospital + ", room=" + room
+				+ ", doctor=" + doctor + ", patient=" + patient + ", operationStatus=" + operationStatus + "]";
+	}
 }
